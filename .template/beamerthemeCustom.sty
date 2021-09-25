@@ -1,0 +1,130 @@
+% the 3 colors
+\definecolor{Color1}{HTML}{25567B}
+\definecolor{Color2}{HTML}{033E6B}
+\definecolor{Color3}{HTML}{66A3D2}
+% the logo on the title page
+\titlegraphic{\includegraphics[height=1.5cm]{img/logo.png}}
+% the logo on every page
+\logo{\includegraphics[height=1.5cm]{img/sorbonne.png}}
+
+\usepackage{booktabs,latexsym,amssymb,wasysym}
+
+\hypersetup{colorlinks,linkcolor=,urlcolor=Color3}
+
+%\useoutertheme{split}
+\usecolortheme{whale}
+\usecolortheme{orchid}
+\useinnertheme[shadow]{rounded}
+
+% to disable the navigation bar
+\setbeamertemplate{navigation symbols}{}
+
+\setbeamercolor{frametitle}{bg=white,fg=Color2}
+
+\setbeamercolor{palette primary}{bg=Color3,fg=white}
+\setbeamercolor{palette secondary}{bg=Color2}
+\setbeamercolor{palette tertiary}{bg=Color3}
+\setbeamercolor{palette quaternary}{bg=Color1}
+
+\setbeamercolor{normal text}{fg=Color1}
+\setbeamercolor{block title}{bg=Color2}
+\setbeamercolor{example text}{fg=Color3}
+\setbeamercolor{alerted text}{fg=Color1}
+
+\setbeamercolor{item}{parent=normal text}
+\setbeamercolor{section in toc}{fg=Color3}
+
+% title blocks: can be better depending on selected colors
+%\setbeamercolor{titlelike}{bg=Color2,fg=white}
+\usepackage{textcomp}
+\usepackage{listings}
+
+
+
+\definecolor{pblue}{rgb}{0.13,0.13,1}
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\definecolor{pred}{rgb}{0.9,0,0}
+\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+
+\lstset{
+    %basicstyle=\ttfamily,
+    numbers=left,
+    numberstyle=\footnotesize,
+    stepnumber=1,
+    %numbersep=5pt,
+    %backgroundcolor=\color{black!10},
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    captionpos=b,
+    breaklines=true,
+    breakautoindent=true,
+    linewidth=\textwidth,
+     showspaces=false,
+    showstringspaces=false,
+  breakatwhitespace=true,
+  commentstyle=\color{pgreen},
+  keywordstyle=\color{pblue},
+  stringstyle=\color{pred},
+  basicstyle=\ttfamily,
+  moredelim=[il][\textcolor{pgrey}]{$$},
+  moredelim=[is][\textcolor{pgrey}]{\%\%}{\%\%},
+  morecomment=[s][\color{red}]{@}{\ },
+  frame=single
+}
+\usepackage[absolute,overlay]{textpos}
+
+\newcommand{\code}[1]{\textcolor{Color3}{\footnotesize{\texttt{#1}}}}
+\newcommand{\entity}[1]{\textcolor{Color2}{#1}}
+\newcommand{\good}{\textcolor{green}{\smiley}}
+\newcommand{\bad}{\textcolor{red}{\frownie}}
+
+% Does not work when generated from markdown using pandoc
+%\AtBeginPart{\frame{\partpage}}
+%
+%\AtBeginSection[]
+%{
+%  \begin{frame}<beamer>
+%    \frametitle{Plan}
+%    \tableofcontents[currentsection]
+%  \end{frame}
+%}
+
+% This is the correct way to get the frame number in the footline,
+% by modifying beamerouterthemesplit footline.
+\setbeamertemplate{footline}{
+  \leavevmode
+  \hbox{\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm plus1fill,rightskip=.3cm]{author in head/foot}
+    \usebeamerfont{author in head/foot}\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+    \usebeamerfont{date in head/foot}
+    \hfill\insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
+  \end{beamercolorbox}}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\AtBeginSection{
+   \frame{\sectionpage}
+}
+
+\makeatletter
+\setbeamertemplate{section page}
+{
+  \begingroup
+    \centering
+%    {\usebeamerfont{section name}\usebeamercolor[fg]{section name}\sectionname~\insertsectionnumber}
+    \vskip1em\par
+    \begin{beamercolorbox}[sep=12pt,center,colsep=-4bp,rounded=true,shadow=\beamer@themerounded@shadow]{section title}
+      \usebeamerfont{section title}\insertsection\par
+    \end{beamercolorbox}
+  \endgroup
+}
+\makeatother
+
+
+\usepackage{longtable,booktabs}
+
