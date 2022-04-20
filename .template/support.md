@@ -4,7 +4,7 @@ author: Nicolas Herbaut
 header-includes:
   - \AtBeginDocument{\title[Enterprise architecture for Digital Transformation]{Enterprise and Service-Oriented Architecture 2 \\Enterprise architecture for Digital Transformation}}
 date: 2020-2021
-lang: fr-FR
+babal-lang: en-US
 aspectratio: 169
 theme: Custom
 classoption:

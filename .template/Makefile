@@ -26,9 +26,9 @@ pdf2png: $(IMAGES)
 
 gen/%.pdf: pdf2png
 	mkdir -p gen
-	pandoc --citeproc -st beamer -V theme:$(THEME) -V lang:en-US --slide-level=2 $(INPUT).md -o gen/$(OUTPUT).pdf
-	pandoc  -V lang:en_US --slide-level=2 $(INPUT).md -o gen/$(OUTPUT).pptx
-	pandoc --citeproc -st beamer -V classoption=notes -V theme:$(THEME) -V lang:en-US --slide-level=2 $(INPUT).md -o gen/$(OUTPUT)_notes.pdf -H beamer-notes.tex
+	pandoc --citeproc -st beamer -V theme:$(THEME)  --slide-level=2 $(INPUT).md -o gen/$(OUTPUT).pdf
+	pandoc --slide-level=2 $(INPUT).md -o gen/$(OUTPUT).pptx
+	pandoc --citeproc -st beamer -V classoption=notes -V theme:$(THEME) --slide-level=2 $(INPUT).md -o gen/$(OUTPUT)_notes.pdf -H beamer-notes.tex
 
 gen/%.html: pdf2png
 	pandoc -t revealjs -s -o gen/$(OUTPUT).html $(INPUT).md -V transition=cube -V revealjs-url=https://revealjs.com
